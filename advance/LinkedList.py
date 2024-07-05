@@ -7,6 +7,7 @@ class LinkedList():
     def __init__(self):
         self.head = None
     
+
     def insert_at_begining(self,data):
         node = Node(data,self.head)
         self.head = node
@@ -20,6 +21,10 @@ class LinkedList():
         while itr.next:
             itr = itr.next
         itr.next = Node(data,None)
+
+    def insert_bulk(self,listofvalues):
+        for data in listofvalues:
+            self.insert_at_end(data)
 
     def get_length(self):
         count=0
@@ -89,4 +94,6 @@ if __name__ == "__main__":
     lList.insert_at_specific(70,2)
     lList.print()
     lList.remove_at_specific(2)
+    lList.print()
+    lList.insert_bulk(["orange","banana","apple"])
     lList.print()
