@@ -49,6 +49,23 @@ class LinkedList():
             count +=1
 
 
+    def remove_at_specific(self,pointer):
+        if pointer <0 or pointer>=self.get_length():
+            raise Exception("Invalid pointer")
+
+        if pointer==0:
+            self.head = self.head.next
+            return
+        
+        itr = self.head
+        count=0
+        while itr:
+            if count==pointer-1:
+                itr.next = itr.next.next
+                break
+            itr = itr.next
+            count +=1
+
     def print(self):
         if self.head == None:
             print("Linked List is empty")
@@ -70,4 +87,6 @@ if __name__ == "__main__":
     lList.insert_at_end(50)
     lList.print()
     lList.insert_at_specific(70,2)
+    lList.print()
+    lList.remove_at_specific(2)
     lList.print()
